@@ -1,4 +1,5 @@
 ActiveAdmin.register Profile do
+  permit_params :occupations, :skills, :education, :date_of_birth, :hometown, :about
 
   
   # See permitted parameters documentation:
