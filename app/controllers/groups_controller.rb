@@ -7,6 +7,16 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def join
+    @group = Group.find(params[:id])
+    @membership = Membership.new
+    @membership.role = "follower"
+    @membership.user = current_user
+    @membership.group = @group
+    @group.memberships << @membership
+    redirect_to @group
+  end
+
   # GET /groups/1
   # GET /groups/1.json
   def show

@@ -8,7 +8,7 @@
   <div class="form-group">
     <%= f.label :type, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :type, :class => 'text-field form-control' %>
+      <%= f.select :group_type, %w[Project Commmunity Organization], {} %>
     </div>
   </div>
   <div class="form-group">
@@ -26,7 +26,7 @@
   <div class="form-group">
     <%= f.label :scope, :class => 'control-label col-md-2' %>
     <div class="col-md-10">
-      <%= f.text_field :scope, :class => 'text-field form-control' %>
+      <%= f.select :scope, %w[village town city state province country international idea] %>
     </div>
   </div>
 

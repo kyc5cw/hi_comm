@@ -5,7 +5,17 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :groups
+  resources :groups do
+    put:join, :on => :collection
+  end
+
+   resources :conversations, only: [:index, :show, :new, :create] do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+  end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

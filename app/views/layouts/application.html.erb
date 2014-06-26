@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HiComm</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-<meta name="viewport" content="width=device-width, initial-scale=1"/></head>
-<body>
-<%= render partial: "elements/navbar" %>
-<%= bootstrap_flash %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Hi Comm" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Hi Comm" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+  </head>
 
-
-<%= yield %>
-
-</body>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
+       <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>

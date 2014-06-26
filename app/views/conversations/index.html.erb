@@ -1,0 +1,13 @@
+<% if @conversations.empty? %>
+no new messages 
+<% else %>
+<ul>
+<%= @conversations.each do |conversation| %>
+ <li>
+    <%= link_to conversation.subject, conversation_path(conversation) %>
+</li>
+  <% end %>
+</ul>
+<% end %>
+</br>
+<%= link_to 'new conversation',  new_conversation_path %>
